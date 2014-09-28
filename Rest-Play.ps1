@@ -3,10 +3,10 @@
 [Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
 
 #quick and dirty
-#sql rest test web service - http://predic8.com/rest-demo.htm
-Invoke-RestMethod -Uri  "https://gdata.youtube.com/feeds/api/videos?v=2&q=PowerShell" | Format-Table
+Invoke-RestMethod -Uri  "https://gdata.youtube.com/feeds/api/videos?v=2&q=PowerShell" | Format-Table -AutoSize
 
-
+#sweet piping
+(Invoke-RestMethod -URI "http://www.seismi.org/api/eqs").earthquakes | Select-Object -First 10 | Format-Table –AutoSize
 
 #pass basic auth as base64 header
 function example1()
@@ -14,7 +14,7 @@ function example1()
 
     $username = "Administrator"
     $password = "PASSWORD"
-    $uri = "http://www.thomas-bayer.com/sqlrest/CUSTOMER"
+    $uri = "http://www.seismi.org/api/eqs"
 
     #headers
     #manual basic auth
@@ -33,11 +33,12 @@ function example2()
 {
     $username = "Administrator"
     $password = "PASSWORD"
-    $uri = "http://www.thomas-bayer.com/sqlrest/CUSTOMER"
+    $uri = "http://www.seismi.org/api/eqs"
 
     $secPw = ConvertTo-SecureString $password -AsPlainText -Force
     $cred = New-Object PSCredential -ArgumentList $username,$secPw
 
     Invoke-RestMethod -Uri $uri -Method GET -Credential $cred -Verbose
 }
+
 
