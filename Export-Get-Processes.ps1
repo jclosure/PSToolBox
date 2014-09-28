@@ -20,7 +20,7 @@ If (Test-Path $fileName){
 #Get-Process | select Name, Description, Product, StartTime, Responding, NPM | Export-Csv $fileName -Append -NoTypeInformation
 
 
-#@{Account="User01";Domain="Domain01";Admin="True"} | ConvertTo-Json - Compress
+#@{Account="User01";Domain="Domain01";Admin="True"} | ConvertTo-Json - Compress$
 
 #pipe object to file
 #Get-Process | Out-File .\output.txt
