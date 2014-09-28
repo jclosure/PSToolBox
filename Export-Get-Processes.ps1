@@ -1,13 +1,12 @@
-﻿#get-help Set-Variable -full
-
-
-#set-variable -name processes -value (Get-Process) -option constant -scope global -description "All processes" -passthru | format-list -property *
-
+﻿
 $fileName = ".\processes.csv"
 
 If (Test-Path $fileName){
 	Remove-Item $fileName
 }
+
+#set a readonly variable (a constant)
+#set-variable -name processes -value (Get-Process) -option constant -scope global -description "All processes" -passthru | format-list -property *
 
 #control through pipeline, can output to whatever
 #Get-Process Format-List -Property * 
@@ -32,6 +31,4 @@ If (Test-Path $fileName){
 #convert xml to json
 #$JsonSecurityHelp = Get-Content $pshome\Modules\Microsoft.PowerShell.Security\en-US\Microsoft.PowerShell.Security.dll-Help.xml | ConvertTo-Json
 
-#sql rest test web service - http://predic8.com/rest-demo.htm
-$url = "http://www.thomas-bayer.com/sqlrest/CUSTOMER"
-Write-Host (Invoke-RestMethod $url).results
+

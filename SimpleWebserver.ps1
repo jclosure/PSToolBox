@@ -9,7 +9,7 @@ Load-Packages
 
 $routes = @{
     "/ola" = { return '<html><body>Hello world!</body></html>' }
-    "/json" = { return '[{hello: "world"},{hello: "world"}]' }
+    "/json" = { return '[{"hello": "world"},{"hello": "world"}]' }
 }
 
 $url = 'http://localhost:8080/'

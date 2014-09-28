@@ -15,15 +15,6 @@ function foo($bar = 10)
         foo ($bar - 1)
     }
 
-     
-<#
-    if ($bar -ne 0)
-    {
-        Write-Host -ForegroundColor Green "$bar is $($bar)"
-        foo ($bar - 1)
-    }
-#>
-
 }
 
 

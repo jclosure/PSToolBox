@@ -2,6 +2,12 @@
 #IMPORTANT!: disable ssl validation errors
 [Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
 
+#quick and dirty
+#sql rest test web service - http://predic8.com/rest-demo.htm
+Invoke-RestMethod -Uri  "https://gdata.youtube.com/feeds/api/videos?v=2&q=PowerShell" | Format-Table
+
+
+
 #pass basic auth as base64 header
 function example1()
 {
