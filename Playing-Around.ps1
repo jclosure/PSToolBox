@@ -1,24 +1,18 @@
 ﻿
 
-function foo()
+function foo($bar = 10)
 {
 
+    #overwriting in place via recusion
+    Write-Host -ForegroundColor Cyan "`$baz is $($baz)"
+    $baz = $baz + 1
+
     
-     #Write-Host -ForegroundColor Cyan "$baz is $($baz)"
-
-     #$baz = "grog"
-
-     
-    if ($bar = $null)
-    {
-        Write-Host -ForegroundColor Green "`$bar is `$null, setting to 10"
-        $bar = 10
-    }
-
+    #recursion driver
     if ($bar -ne 0)
     {
         Write-Host -ForegroundColor Green "`$bar is $($bar)"
-        foo
+        foo ($bar - 1)
     }
 
      
@@ -33,4 +27,4 @@ function foo()
 }
 
 
-foo 10
+foo 10 "qux"
