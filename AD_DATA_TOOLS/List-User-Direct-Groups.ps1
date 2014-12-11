@@ -1,0 +1,1 @@
+﻿get-aduser jclosure -property Memberof | Select -ExpandProperty memberOf
