@@ -1,0 +1,1 @@
+﻿[Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('BASE64STRINGHERE'))

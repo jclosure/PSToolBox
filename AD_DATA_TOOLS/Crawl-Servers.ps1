@@ -2,7 +2,7 @@
 
 #todo: must import Get-LocalGroupMembers to run it here.
 
-$searchPattern = "someprefixinhostname*"
+$searchPattern = "*"
 
 Get-ADComputer -Filter {(Name -like $searchPattern)} -Properties IPv4Address | foreach-object  {
     

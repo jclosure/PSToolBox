@@ -1,6 +1,6 @@
 ﻿
 
-function foo($bar = 10)
+function foo_by_val($bar = 10)
 {
 
     #overwriting in place via recusion
@@ -18,4 +18,17 @@ function foo($bar = 10)
 }
 
 
-foo 10 "qux"
+foo_by_val 10 "qux"
+
+
+function foo_by_ref($bar = @{ foo=0 })
+{
+
+    #overwriting in place via recusion
+    Write-Host -ForegroundColor Cyan "`$bar is $($bar)"
+    $bar['foo'] = $bar['foo'] + 1
+
+}
+
+
+foo_by_ref 10 "qux"
